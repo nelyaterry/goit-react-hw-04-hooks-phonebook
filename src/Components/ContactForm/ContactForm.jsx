@@ -11,7 +11,7 @@ const ContactForm = ({ onSubmit }) => {
   const [number, setNumber] = useState("");
   const [id, setId] = useState("");
 
-  const Contact = {
+  const contact = {
     name: name,
     number: number,
     id: id,
@@ -19,7 +19,6 @@ const ContactForm = ({ onSubmit }) => {
 
   const handelChange = (e) => {
     const { name, value } = e.currentTarget;
-    setId(uuidv4());
     if (name === "name") {
       setName(value);
     }
@@ -30,7 +29,8 @@ const ContactForm = ({ onSubmit }) => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    onSubmit(Contact);
+    setId(uuidv4());
+    onSubmit(contact);
     reset();
   };
 

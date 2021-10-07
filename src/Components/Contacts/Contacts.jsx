@@ -15,7 +15,7 @@ const Contacts = ({ contacts, handleDeleteContact }) => {
     contacts.length > 0 ? (
       <ContacstList>
         {contacts.map(({ name, number, id }) => (
-          <Contact key={id}>
+          <Contact key={id} id={id}>
             <ContactName>{name}</ContactName>
             <ContactPhone>{number}</ContactPhone>
             <ButtonText type="button" onClick={() => handleDeleteContact(id)}>
