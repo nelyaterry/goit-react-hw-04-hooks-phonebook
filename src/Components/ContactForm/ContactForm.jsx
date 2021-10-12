@@ -9,13 +9,6 @@ import { Form, Label, InputName, Input } from "./ContactForm.styled";
 const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState("");
   const [number, setNumber] = useState("");
-  const [id, setId] = useState("");
-
-  const contact = {
-    name: name,
-    number: number,
-    id: id,
-  };
 
   const handelChange = (e) => {
     const { name, value } = e.currentTarget;
@@ -29,8 +22,11 @@ const ContactForm = ({ onSubmit }) => {
 
   const handelSubmit = (e) => {
     e.preventDefault();
-    setId(uuidv4());
-    onSubmit(contact);
+    onSubmit({
+      name: name,
+      number: number,
+      id: uuidv4(),
+    });
     reset();
   };
 
